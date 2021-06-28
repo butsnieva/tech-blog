@@ -1,0 +1,27 @@
+{
+  "name": "tech-blog",
+  "version": "1.0.0",
+  "description": "A blog website that allows developers to publish posts and comment on other posts. ",
+  "main": "server.js",
+  "scripts": {
+    "test": "n/a"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/butsnieva/tech--blog.git"
+  },
+  "author": "Kateryna Butsnieva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/butsnieva/tech--blog/issues"
+  },
+  "homepage": "https://github.com/butsnieva/tech--blog#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "handlebars": "^4.7.7",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.4"
+  }
+}
