@@ -9,21 +9,21 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
-<body>
+<body class="bg-light">
     <header>
         <h1>Cool Tech Blog</h1>
         <nav>
             <a class="btn btn-secondary" href="/" role="button">Home</a>
             {{#if loggedIn}}
             <a class="btn btn-secondary" href="/dashboard" role="button">Dashboard</a>
-            <button id="logout">Logout</button>
+            <button class="btn btn-secondary" id="logout">Logout</button>
             {{else}}
             <a class="btn btn-secondary" href="/login" role="button">Login</a>
             {{/if}}
         </nav>
     </header>
 
-    <main>
+    <main class="col-10 mx-auto">
         {{{body}}}
     </main>
     <footer>

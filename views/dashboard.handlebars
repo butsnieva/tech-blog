@@ -1,0 +1,16 @@
+{{#if post.length}}
+<section>
+    <h2>Your Posts</h2>
+    {{#each posts as |post|}}
+        <a href="/dashboard/edit/{{id}}">{{title}}</a>
+    {{/each}}
+</section>
+{{/if}}
+
+<div class="d-grid gap-2 col-6 mx-auto">
+    <button type="submit" class="btn btn-light btn-lg">
+        <a href="/dashboard/new">Add New Post</a>
+    </button>
+</div>
+
+<script src="./js/add-new-post.js"></script>
