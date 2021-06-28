@@ -10,13 +10,12 @@
 </head>
 
 <body class="bg-light">
-    <header>
-        <h1>Cool Tech Blog</h1>
+    <header class="d-flex flex-row-reverse">
         <nav>
             <a class="btn btn-secondary" href="/" role="button">Home</a>
             <a class="btn btn-secondary" href="/dashboard" role="button">Dashboard</a>
             {{#if loggedIn}}
-            <a href="/" id="logout" class="btn btn-secondary">Logout</a>
+            <a href="/login" id="logout" class="btn btn-secondary">Logout</a>
             {{else}}
             <a class="btn btn-secondary" href="/login" role="button">Login</a>
             {{/if}}
@@ -24,9 +23,12 @@
     </header>
 
     <main class="col-10 mx-auto">
+        <div class="hero">
+            <h1>Cool Tech Blog</h1>
+        </div>
         {{{body}}}
     </main>
-    <footer>
+    <footer class="d-flex justify-content-center">
         <p>© Created by <a href="https://github.com/butsnieva">Kateryna B.</a></p>
     </footer>
     {{#if loggedIn}}

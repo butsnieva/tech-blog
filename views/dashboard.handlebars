@@ -1,8 +1,10 @@
-<p class="separator" id="welcome-text">Welcome, {{username}}.</p>
+<p class="dropdown-devider" id="welcome-text">Welcome, {{username}}.</p>
 
-<a href="/dashboard/new">
-    <button type="submit" class="btn" id="add-post-btn">Add New Post</button>
-</a>
+<div class="new-post container">
+    <a href="/dashboard/new">
+        <button type="submit" class="btn btn-light btn-lg" id="add-post-btn">Add New Post</button>
+    </a>
+</div>
 
 {{#if posts.length}}
 <section class="section-header separator">
