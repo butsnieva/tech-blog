@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Blog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
@@ -12,12 +13,12 @@
     <header>
         <h1>Cool Tech Blog</h1>
         <nav>
-            <a href="/">Home</a>
+            <a class="btn btn-secondary" href="/" role="button">Home</a>
             {{#if loggedIn}}
-            <a href="/dashboard">Dashboard</a>
+            <a class="btn btn-secondary" href="/dashboard" role="button">Dashboard</a>
             <button id="logout">Logout</button>
             {{else}}
-            <a href="/login">Login</a>
+            <a class="btn btn-secondary" href="/login" role="button">Login</a>
             {{/if}}
         </nav>
     </header>

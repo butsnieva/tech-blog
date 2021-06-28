@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #e4e3e3;
+    font-family: Tahoma, Geneva, sans-serif;
+}
+
+header {
+    background: url("../images/bg.png");
+    background-size: cover;
+    font-size: 20px;
+    padding: 100px 20px;
+}
+
+header h1 {
+    color: #00688B;
+    font-size: 4rem;
+    width: 100%;
+}
