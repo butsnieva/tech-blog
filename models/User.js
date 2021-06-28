@@ -21,14 +21,19 @@ User.init(
         username: {
             type: DataTypes.STRING,
             allowNull: false,
-        },
+            validate: {
+                notNull: {
+                    msg: 'Username cannot be null'
+        }}},
         password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [6],
+                notNull: {
+                    msg: 'Password cannot be null'
             },
-        },
+        }},
     },
     {
         hooks: {

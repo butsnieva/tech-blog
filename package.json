@@ -4,7 +4,9 @@
   "description": "A blog website that allows developers to publish posts and comment on other posts. ",
   "main": "server.js",
   "scripts": {
-    "test": "n/a"
+    "test": "n/a",
+    "start": "node server.js",
+    "seed": "node seeds/index.js"
   },
   "repository": {
     "type": "git",

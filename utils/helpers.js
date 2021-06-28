@@ -3,7 +3,7 @@ module.exports = {
         return date.toLocaleTimeString();
     },
     format_date: (date) => {
-        const year = new Date(date).getFullYear() + 5;
+        const year = new Date(date).getFullYear();
         const month = new Date(date).getMonth() + 1;
         const day = new Date(date).getDate();
         return `${month}/${day}/${year}`;

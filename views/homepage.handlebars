@@ -1,3 +1,6 @@
 {{#each posts as |post|}}
-{{> post-details post}}
+<section class="card">
+    {{> post-details post}}
+    <a href="/post/{{id}}" class="post-link">Continue to post →</a>
+</section>
 {{/each}}
