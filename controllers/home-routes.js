@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Comment, Post, User } = require('../models');
 
+// Get home page
 router.get('/', async (req, res) => {
     try {
         const dbPostData = await Post.findAll({
@@ -10,23 +11,29 @@ router.get('/', async (req, res) => {
                 'content',
                 'created_at'
             ],
-            
-        include: [
-            {
-            model: Comment,
-            attributes: [
-                'id',
-                'comment_text',
-                'post_id', 
-                'user_id', 
-                'created_at'
+            order: [
+                ['created_at', 'DESC'],
             ],
-                include: {
+            include: [
+                {
                     model: User,
                     attributes: ['username'],
                 },
-            },
-        ],
+                {
+                model: Comment,
+                attributes: [
+                    'id',
+                    'comment_text',
+                    'post_id', 
+                    'user_id', 
+                    'created_at'
+                ],
+                    include: {
+                        model: User,
+                        attributes: ['username'],
+                    },
+                },
+            ],
         });
 
         const posts = dbPostData.map((post) =>
@@ -43,6 +50,7 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Get the individual post page
 router.get('/post/:id', async (req, res) => {
     try {
         const dbPostData = await Post.findByPk(req.params.id, {
@@ -57,6 +65,10 @@ router.get('/post/:id', async (req, res) => {
             ],
             include: [
                 {
+                    model: User,
+                    attributes: ['username'],
+                },
+                {
                     model: Comment,
                     attributes: [
                         'id',
@@ -69,10 +81,6 @@ router.get('/post/:id', async (req, res) => {
                         model: User,
                         attributes: ['username'],
                     },
-                },
-                {
-                    model: User,
-                    attributes: [ 'username' ],
                 },
             ],
         });
@@ -90,6 +98,7 @@ router.get('/post/:id', async (req, res) => {
     }
 });
 
+// Get login page
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
@@ -99,6 +108,7 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+// Get signup page
 router.get('/signup', (req, res) => {
     res.render('signup');
 });

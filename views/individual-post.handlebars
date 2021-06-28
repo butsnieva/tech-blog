@@ -1,13 +1,20 @@
 {{> post-details post}}
 
 {{#if loggedIn}}
-<section>
-    <form>
-        <label for="comment">Comment:</label><br>
-        <textarea id="comment" name="comment" placeholder="Enter comment"></textarea>>
+<section class="comment-card">
+    <form class="comment-form">
+        <label for="comment">Add a comment:</label><br>
+        <textarea id="comment" name="comment" placeholder="Enter comment"></textarea>
         <button class="btn btn-secondary" type="submit">Submit</button>
     </form>
 </section>
 {{/if}}
 
-<h2>Comments</h2>
+
+
+
+{{> comments post.comments}}
+
+{{#if loggedIn}}
+<script src="./js/comment.js"></script>
+{{/if}}

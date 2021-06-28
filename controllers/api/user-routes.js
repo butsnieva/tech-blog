@@ -1,6 +1,64 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// Get all users
+router.get('/', async (request, response) => {
+    try {
+        const dbUserData = await User.findAll({
+            attributes: { exclude: ['password'] },
+        });
+
+        response.status(200).json(dbUserData);
+    } catch (err) {
+        console.log(err);
+        response.status(500).json(err);
+    }
+});
+
+
+// Get a single user
+router.get('/:id', async (request, response) => {
+    try {
+        const dbUserData = await User.findByPk(request.params.id, {
+            where: {
+                id: request.params.id,
+            },
+            include: [
+                {
+                    model: Post,
+                    attributes: [
+                        'id',
+                        'title',
+                        'content',
+                        'created_at'
+                    ],
+                },
+                {
+                    model: Comment,
+                    attributes: [
+                        'id',
+                        'comment_text',
+                        'created_at'
+                    ],
+                    include: {
+                        model: Post,
+                        attributes: ['title'],
+                    },
+                },
+            ],
+        });
+        if (!dbUserData) {
+            response.status(404).json({ message: 'No user found with that id' });
+            return;
+        }
+        response.status(200).json(dbUserData);
+    } catch (err) {
+        console.log(err);
+        response.status(500).json(err);
+    }
+});
+
+
 // CREATE new user
 router.post('/', async (req, res) => {
     try {
@@ -34,7 +92,7 @@ router.post('/login', async (req, res) => {
     if (!dbUserData) {
         res
         .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
+        .json({ message: 'Incorrect username or password. Please try again!' });
         return;
     }
 
@@ -43,7 +101,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
         res
         .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
+        .json({ message: 'Incorrect username or password. Please try again!' });
         return;
     }
 
