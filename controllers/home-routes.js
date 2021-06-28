@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Comment, Post, User } = require('../models');
 
 // Get home page
-router.get('/', async (req, res) => {
+router.get('/', async (request, response) => {
     try {
         const dbPostData = await Post.findAll({
             attributes: [
@@ -20,14 +20,14 @@ router.get('/', async (req, res) => {
                     attributes: ['username'],
                 },
                 {
-                model: Comment,
-                attributes: [
-                    'id',
-                    'comment_text',
-                    'post_id', 
-                    'user_id', 
-                    'created_at'
-                ],
+                    model: Comment,
+                    attributes: [
+                        'id',
+                        'comment_text',
+                        'post_id',
+                        'user_id',
+                        'created_at'
+                    ],
                     include: {
                         model: User,
                         attributes: ['username'],
@@ -37,25 +37,25 @@ router.get('/', async (req, res) => {
         });
 
         const posts = dbPostData.map((post) =>
-        post.get({ plain: true })
+            post.get({ plain: true })
         );
 
-        res.render('homepage', {
-        posts,
-        loggedIn: req.session.loggedIn,
+        response.render('homepage', {
+            posts,
+            loggedIn: request.session.loggedIn,
         });
     } catch (err) {
         console.log(err);
-        res.status(500).json(err);
+        response.status(500).json(err);
     }
 });
 
 // Get the individual post page
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', async (request, response) => {
     try {
-        const dbPostData = await Post.findByPk(req.params.id, {
+        const dbPostData = await Post.findByPk(request.params.id, {
             where: {
-                id: req.params.id,
+                id: request.params.id,
             },
             attributes: [
                 'id',
@@ -85,32 +85,29 @@ router.get('/post/:id', async (req, res) => {
             ],
         });
         if (!dbPostData) {
-            res
-                .status(404)
-                .json({ message: 'No post found with that id' });
+            response.status(404).json({ message: 'No post found with that id' });
             return;
         }
         const post = dbPostData.get({ plain: true });
-        res.render('individual-post', { post, loggedIn: req.session.loggedIn });
+        response.render('individual-post', { post, loggedIn: request.session.loggedIn });
     } catch (err) {
         console.log(err);
-        res.status(500).json(err);
+        response.status(500).json(err);
     }
 });
 
 // Get login page
-router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/');
+router.get('/login', (request, response) => {
+    if (request.session.loggedIn) {
+        response.redirect('/');
         return;
     }
-
-    res.render('login');
+    response.render('login');
 });
 
 // Get signup page
-router.get('/signup', (req, res) => {
-    res.render('signup');
+router.get('/signup', (request, response) => {
+    response.render('signup');
 });
 
 module.exports = router;

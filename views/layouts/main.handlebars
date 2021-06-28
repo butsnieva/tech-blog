@@ -14,8 +14,8 @@
         <h1>Cool Tech Blog</h1>
         <nav>
             <a class="btn btn-secondary" href="/" role="button">Home</a>
-            {{#if loggedIn}}
             <a class="btn btn-secondary" href="/dashboard" role="button">Dashboard</a>
+            {{#if loggedIn}}
             <a href="/" id="logout" class="btn btn-secondary">Logout</a>
             {{else}}
             <a class="btn btn-secondary" href="/login" role="button">Login</a>

@@ -2,7 +2,9 @@ const commentFormHandler = async (event) => {
     event.preventDefault();
 
     const comment_text = document.querySelector('#comment').value.trim();
-
+    const post_id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+    ];
     if (comment_text) {
         const response = await fetch('/api/comments', {
             method: 'POST',
@@ -14,13 +16,9 @@ const commentFormHandler = async (event) => {
         document.location.reload();
     } else {
         alert('Failed to add comment.');
-        document
-            .querySelector('.comment-form')
-            .style.display = 'block'; 
+        document.querySelector('.comment-form').style.display = 'block'; 
     }
     }
 };
 
-document
-    .querySelector('.comment-form')
-    .addEventListener('submit', commentFormHandler);
+document.querySelector('#add-comment-btn').addEventListener('click', commentFormHandler);

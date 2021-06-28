@@ -24,7 +24,9 @@ User.init(
             validate: {
                 notNull: {
                     msg: 'Username cannot be null'
-        }}},
+                },
+            },
+        },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -32,8 +34,9 @@ User.init(
                 len: [6],
                 notNull: {
                     msg: 'Password cannot be null'
+                },
             },
-        }},
+        },
     },
     {
         hooks: {

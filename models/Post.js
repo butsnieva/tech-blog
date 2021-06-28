@@ -1,8 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Post extends Model {}
+// Extending the Model prototype to the Post class
+class Post extends Model { }
 
+// Initializing the Post class
 Post.init(
     {
         id: {
@@ -14,10 +16,20 @@ Post.init(
         title: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                notNull: {
+                    msg: 'Title cannot be null'
+                },
+            },
         },
         content: {
             type: DataTypes.TEXT,
             allowNull: false,
+            validate: {
+                notNull: {
+                    msg: 'Content cannot be null'
+                },
+            },
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -25,7 +37,7 @@ Post.init(
             references: {
                 model: 'user',
                 key: 'id',
-                },
+            },
         },
     },
     {

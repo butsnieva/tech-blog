@@ -3,11 +3,11 @@ const { Comment, Post, User } = require('../models');
 const authentication = require('../utils/auth');
 
 // Get dashboard page
-router.get('/', authentication, async (req, res) => {
+router.get('/', authentication, async (request, response) => {
     try {
         const dbPostData = await Post.findAll({
             where: {
-                user_id: req.session.user_id,
+                user_id: request.session.user_id,
             },
             attributes: [
                 'id',
@@ -44,18 +44,17 @@ router.get('/', authentication, async (req, res) => {
             post.get({ plain: true })
         );
 
-        res.render('dashboard', {
+        response.render('dashboard', {
             posts,
-            loggedIn: req.session.loggedIn,
-            user_id: req.session.user_id,
-            username: req.session.username,
+            loggedIn: request.session.loggedIn,
+            user_id: request.session.user_id,
+            username: request.session.username,
         });
     } catch (err) {
         console.log(err);
-        res.status(500).json(err);
+        response.status(500).json(err);
     }
 });
-
 
 // Get the edit post page
 router.get('/edit/:id', authentication, async (request, response) => {
@@ -102,7 +101,6 @@ router.get('/edit/:id', authentication, async (request, response) => {
         response.status(500).json(err);
     }
 });
-
 
 // Get the add new post page
 router.get('/new', authentication, async (request, response) => {
