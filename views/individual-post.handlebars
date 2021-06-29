@@ -6,7 +6,7 @@
             <form class="comment-form">
                 <label class="form-label" for="comment">Add a comment:</label><br>
                 <textarea class="form-control mb-1" id="comment" name="comment" type="text" placeholder="Enter comment"></textarea>
-                <button class="btn btn-secondary" type="submit">Submit</button>
+                <button id="add-comment-btn" class="btn btn-secondary" type="submit">Submit</button>
             </form>
         </section>
         {{/if}}
@@ -15,7 +15,7 @@
         {{> comments post.comments}}
 
         {{#if loggedIn}}
-        <script src="./js/comment.js"></script>
+        <script src="../public/js/comment.js"></script>
         {{/if}}
     </div>
 </div>

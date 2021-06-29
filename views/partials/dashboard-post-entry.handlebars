@@ -1,11 +1,12 @@
-<a href="/dashboard/edit/{{id}}">
-    <article class="dashboard-button">
-        <h4>{{title}} <span class="subtext no-display">Edit post</span></h4>
-    </article>
-</a>
-    <div>
+<div class="card-body">
+    <a href="/dashboard/edit/{{id}}">
+        <article class="dashboard-button card-header">
+            <h4>{{title}} <span class="subtext no-display">Edit post</span></h4>
+        </article>
+    </a>
+    <div class="card-text">
         <p class="dash-post-text">{{content}}</p>
     </div>
-
+</div>
 
 <script src="/../../js/dashboard.js"></script>

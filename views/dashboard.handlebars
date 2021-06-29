@@ -1,16 +1,17 @@
-<p class="dropdown-devider" id="welcome-text">Welcome, {{username}}.</p>
-
 <div class="new-post container">
     <a href="/dashboard/new">
         <button type="submit" class="btn btn-light btn-lg" id="add-post-btn">Add New Post</button>
     </a>
 </div>
+<p class="welcome-text">Welcome, {{username}}.</p>
 
 {{#if posts.length}}
 <section class="section-header separator">
     <h2>Your Posts</h2>
     {{#each posts as |post|}}
-    {{> dashboard-post-entry post}}
+        <div class="card">
+        {{> dashboard-post-entry post}}
+        </div>
     {{/each}}
 </section>
 {{/if}}

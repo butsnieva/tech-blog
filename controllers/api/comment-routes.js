@@ -35,7 +35,7 @@ router.get('/:id', async (request, response) => {
 
 // Create new comment
 router.post('/', authentication, async (request, response) => {
-    console.log('This and that', request.session);
+    console.log('', request.session);
     try {
         if(request.session) {
             const dbCommentData = await Comment.create({
