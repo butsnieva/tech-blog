@@ -26,7 +26,7 @@ header nav a {
     margin-bottom: 50px;
 }
 
-.card-header {
+.card-header h2 a {
     color: #014860;
 }
 
@@ -60,4 +60,8 @@ header nav a {
 .welcome-text {
     font-size: large;
     font-weight: bold;
+}
+
+.from-label {
+    margin-left: 10px;
 }

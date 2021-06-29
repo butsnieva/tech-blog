@@ -21,4 +21,4 @@ const commentFormHandler = async (event) => {
     }
 };
 
-document.querySelector('#add-comment-btn').addEventListener('click', commentFormHandler);
+document.querySelector('#add-comment-button').addEventListener('click', commentFormHandler);

@@ -1,16 +1,16 @@
 <section>
-    <h3>Edit post</h3>
+    <h3 class="from-label">Edit post</h3>
     <form class="form post-form">
-        <div class="from-group">
-            <textarea id="post-title" type="text" name="post-title" placeholder="Title" rows="1" cols="50">{{post.title}}</textarea>
+        <div>
+            <textarea class="form-control mb-1" id="post-title" type="text" name="post-title" placeholder="Title" rows="1" cols="50">{{post.title}}</textarea>
         </div>
-        <div class="from-group">
-            <textarea id="post-content" type="text" name="post-content" placeholder="Post Content" rows="8" cols="50">{{post.content}}</textarea>
+        <div>
+            <textarea class="form-control mb-1" id="post-content" type="text" name="post-content" placeholder="Post Content" rows="8" cols="50">{{post.content}}</textarea>
         </div>
         <div class="error-message"></div>
         <div class="form-group">
-            <button class="btn" id="edit-post-button" type="submit">Update</button>
-            <button class="btn" id="delete-post-button" type="submit">Delete Post</button>
+            <button class="btn btn-secondary" id="edit-post-button" type="submit">Update</button>
+            <button class="btn btn-secondary" id="delete-post-button" type="submit">Delete Post</button>
         </div>
     </form>
 </section>
