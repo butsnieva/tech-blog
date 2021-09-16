@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/butsnieva/tech--blog.git"
+    "url": "git+https://github.com/butsnieva/tech-blog.git"
   },
   "author": "Kateryna Butsnieva",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/butsnieva/tech--blog/issues"
+    "url": "https://github.com/butsnieva/tech-blog/issues"
   },
-  "homepage": "https://github.com/butsnieva/tech--blog#readme",
+  "homepage": "https://github.com/butsnieva/tech-blog#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "bootstrap": "^5.0.2",
