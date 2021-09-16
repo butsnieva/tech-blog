@@ -8,4 +8,10 @@ module.exports = {
         const day = new Date(date).getDate();
         return `${month}/${day}/${year}`;
     },
+    format_plural: (word, amount) => {
+        if (amount !== 1) {
+            return `${word}s`
+        }
+        return word
+    }
 };
